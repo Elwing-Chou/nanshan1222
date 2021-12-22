@@ -1,5 +1,12 @@
 import tkinter as tk
 
+def bmi():
+    global e1, e2, result
+    weight = float(e1.get())
+    height = float(e2.get())
+    ans = weight / (height / 100) ** 2
+    result["text"] = str(ans)
+
 # 創造元件(父元件)
 # 元件.排版(pack/grid/absolute)
 window = tk.Tk()
@@ -15,7 +22,9 @@ l2 = tk.Label(f1, text="身高:")
 l2.pack(expand=True, fill=tk.BOTH, padx=5, pady=5)
 e2 = tk.Entry(f1)
 e2.pack(expand=True, fill=tk.BOTH, padx=5, pady=5)
-b1 = tk.Button(f1, text="計算")
+# dic["欄位"]: 型態: dic, 操作: []
+# print(3): 型態: print(步驟型態), 操作: (3)
+b1 = tk.Button(f1, text="計算", command=bmi)
 b1.pack(expand=True, fill=tk.BOTH, padx=5, pady=5)
 result = tk.Label(f1, text="點擊按鈕進行計算")
 result.pack(expand=True, fill=tk.BOTH, padx=5, pady=5)
